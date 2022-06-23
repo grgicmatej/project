@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * NOTE: Only use VANILLA PHP please do not use any 3rd party packages or any other libraries.
  * Task 1:
  * Make this work (repeat 3 times the contents of an array):
@@ -13,7 +13,7 @@
  * ********************************************************************************************************************
  */
 
-function repeatThreeTimes($argv){
+function repeat($argv){
     argumentValidation($argv);
     $dataToPrint = dataValidation($argv[1]);
 
@@ -46,5 +46,5 @@ function argumentValidation($argv)
     }
 }
 
-repeatThreeTimes($argv);
+repeat($argv);
 
