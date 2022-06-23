@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * NOTE: Only use VANILLA PHP please do not use any 3rd party packages or any other libraries.
  * Task 2:
  * Make this work (no vowels, lowercase except the first letter):
@@ -14,5 +14,51 @@
  * ********************************************************************************************************************
  */
 
+/**
+ * @param $argv
+ * @return void
+ */
+function reformat($argv): void
+{
+    $vowels = ['a', 'e', 'i', 'o', 'u'];
 
-?>
+    $argument = sanitizeInputArgument($argv);
+
+    $argumentToPrint = '';
+
+    for ($i = 0; $i < strlen($argument); $i++){
+        if (!in_array($argument[$i], $vowels)){
+            $argumentToPrint .= $argument[$i];
+        }
+    }
+
+    sanitizeOutputArgument($argumentToPrint);
+}
+
+/**
+ * @param $argv
+ * @return string
+ */
+function sanitizeInputArgument($argv): string
+{
+    $argument = '';
+    for($i = 1; $i <= count($argv)-1; $i++){
+        $argument.=$argv[$i].' ';
+    }
+    $argument = strtolower($argument);
+    return rtrim($argument);
+}
+
+/**
+ * @param $argumentToPrint
+ * @return void
+ */
+function sanitizeOutputArgument($argumentToPrint): void
+{
+    $argumentToPrint = rtrim($argumentToPrint);
+    $argumentToPrint = ltrim($argumentToPrint);
+    $argumentToPrint .= "\n";
+    echo ucfirst($argumentToPrint);
+}
+
+reformat($argv);
