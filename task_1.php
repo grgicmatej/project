@@ -13,7 +13,12 @@
  * ********************************************************************************************************************
  */
 
-function repeat($argv){
+/**
+ * @param $argv
+ * @return void
+ */
+function repeat($argv): void
+{
     argumentValidation($argv);
     $dataToPrint = dataValidation($argv[1]);
 
@@ -28,13 +33,21 @@ function repeat($argv){
     }
 }
 
-function dataValidation($arg)
+/**
+ * @param $arg
+ * @return string
+ */
+function dataValidation($arg): string
 {
     $argumentData = str_replace('.', ',', $arg); // just in case if user types in dots instead of comma's
     return rtrim($argumentData, ',');
 }
 
-function argumentValidation($argv)
+/**
+ * @param $argv
+ * @return void
+ */
+function argumentValidation($argv): void
 {
     if (!isset($argv[1])){
         echo "Parametri za repeat nisu unešeni. \n";
