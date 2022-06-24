@@ -42,8 +42,8 @@ function reformat($argv): void
 function sanitizeInputArgument($argv): string
 {
     $argument = '';
-    for($i = 1; $i <= count($argv)-1; $i++){
-        $argument.=$argv[$i].' ';
+    for($i = 1; $i <= (count($argv) - 1); $i++){
+        $argument .= $argv[$i].' ';
     }
     $argument = strtolower($argument);
     return rtrim($argument);

@@ -94,17 +94,17 @@ function decimalToBinary($argv): string
  */
 function binaryToDecimal($argv): float
 {
-    $digits = str_split($argv);
-    $reversed = array_reverse($digits);
-    $res = 0;
+    $inputBinaryNumber = str_split($argv);
+    $inputBinaryNumberReversed = array_reverse($inputBinaryNumber);
+    $inputNumberInDecimal = 0;
 
-    for($x = 0; $x < count($reversed); $x++) {
-        if($reversed[$x] == 1) {
-            $res += pow(2, $x);
+    for($i = 0; $i < count($inputBinaryNumberReversed); $i++) {
+        if($inputBinaryNumberReversed[$i] == 1) {
+            $inputNumberInDecimal += pow(2, $i);
         }
     }
 
-    return $res;
+    return $inputNumberInDecimal;
 }
 
 /**
@@ -116,7 +116,7 @@ function outputSanitizer($arg): string
     $sanitizedOutput = '';
     for ($i = 0; $i < strlen($arg); $i++){
         $comma = ',';
-        if ($i == (strlen($arg) - 1)){
+        if ($i === (strlen($arg) - 1)){
             $comma = "\n";
         }
         $sanitizedOutput .= $arg[$i].$comma;

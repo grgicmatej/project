@@ -26,7 +26,7 @@ function repeat($argv): void
 
     for ($i = 0; $i < $numOfRepeats; $i++){
         $comma = ',';
-        if ($i === 2){
+        if ($i === ($numOfRepeats - 1)){
             $comma = "\n";
         }
         echo $dataToPrint.$comma;
@@ -39,7 +39,7 @@ function repeat($argv): void
  */
 function dataValidation($arg): string
 {
-    $argumentData = str_replace('.', ',', $arg); // just in case if user types in dots instead of comma's
+    $argumentData = str_replace('.', ',', $arg); // just in case if user types in dots instead of commas
     return rtrim($argumentData, ',');
 }
 
@@ -60,4 +60,3 @@ function argumentValidation($argv): void
 }
 
 repeat($argv);
-
